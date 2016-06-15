@@ -1,0 +1,5 @@
+name: ExampleTest
+code: ExampleTest
+version: 1.0.0
+service:
+    - ExampleTestServiceProvider

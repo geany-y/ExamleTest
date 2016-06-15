@@ -1,0 +1,75 @@
+{% extends 'default_frame.twig' %}
+
+{% set menus = ['store', 'plugin', 'plugin_list'] %}
+
+{% block title %}ExampleTest画面{% endblock %}
+{% block sub_title %}{% endblock %}
+
+{% form_theme form 'Form/bootstrap_3_horizontal_layout.html.twig' %}
+
+{% block main %}
+    <form class="form-horizontal" method="post" action="{{ url('plugin_ExampleTest_config') }}">
+        {{ form_widget(form._token) }}
+        <div class="row" id="aside_wrap">
+            <div  class="col-md-9">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">ExampleTest設定</h3>
+                    </div><!-- /.box-header -->
+                    <div class="box-body form-horizontal">
+                        <div class="form-group {% if form.name.vars.errors|length %} has-error {% endif %}">
+                            <label class="col-sm-4 control-label">サンプル項目<span class="text-danger">*</span></label>
+                            <div class="col-sm-8">
+                                {{ form_widget(form.name) }}
+                                {{ form_errors(form.name) }}
+                            </div>
+                            <div class="col-sm-8">
+                                <dl>
+                                    <dt>本プラグイン概要</dt>
+                                    <dd>本プラグインはテストコード制作の練習用です</dd>
+                                    <br />
+                                    <dt>本プラグイン機能概要</dt>
+                                    <dd>
+                                        <ol>
+                                            <li>本プラグインは<a href="https://www.ec-cube.net/products/detail.php?product_id=1022" target="_blank">プラグインジェネレーター</a>(株式会社キュールさん作成)を利用し作成しています</li>
+                                            <li>本プラグインはプラグインのテストコード作成の説明のために作成しました</li>
+                                            <li>本プラグインは本体サービスのShoppingServiceをもとに作成しています</li>
+                                            <li>本プラグインのサービスはShoppingService内のgetNonMemberメソッドのみ流用しています</li>
+                                        </ol>
+                                    </dd>
+                                    <br />
+                                    <dt利用方法</dt>
+                                    <dd>
+                                        <ol>
+                                            <li>まずは以下リンクの<bold>ログイン画面</bold>に</li>
+                                            <li>本プラグインはプラグインのテストコード作成の説明のために作成しました</li>
+                                            <li>本プラグインは本体サービスのShoppingServiceをもとに作成しています</li>
+                                            <li>本プラグインのサービスはShoppingService内のgetNonMemberメソッドのみ流用しています</li>
+                                        </ol>
+                                    </dd>
+                                </dl>
+                                <ul>
+                                    <li><a href="{{ url('mypage_login') }}">ログイン</a><li>
+                                    <li><a href="{{ url('plugin_ExampleTest_hello') }}">テストプラグイントップへ</a><li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div><!-- /.box-body -->
+                </div><!-- /.box -->
+            </div><!-- /.col -->
+            <div class="col-md-3" id="aside_column">
+                <div id="common_box" class="col_inner">
+                    <div id="common_button_box" class="box no-header">
+                        <div id="common_button_box__body" class="box-body">
+                            <div id="common_button_box__edit_button" class="row text-center">
+                                <div class="col-sm-6 col-sm-offset-3 col-md-12 col-md-offset-0">
+                                    <button class="btn btn-primary btn-block btn-lg" type="submit">設定</button>
+                                </div>
+                            </div>
+                        </div><!-- /.box-body -->
+                    </div><!-- /.box -->
+                </div>
+            </div><!-- /.col -->
+        </div>
+    </form>
+{% endblock main %}

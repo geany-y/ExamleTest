@@ -1,0 +1,18 @@
+{# default_frame.twgiを継承して共通のヘッダー、フッターを表示するにはdtb_page_layout に登録が必要 #}
+{% extends 'default_frame.twig' %}
+
+
+{% set body_class = 'ExampleTest_page' %}
+
+{% block main %}
+    <div class="row">
+        <div class="col-md-12">
+            {% if installDate is not empty %}
+                <h2>Hello</h2>
+                <p>本プラグインがインストールされたのは「<span class="text-success">{{ installDate }}</span>」です。</p>
+            {% else %}
+                <p class="text-danger">プラグインのインストール時間が取得出来ませんでした。</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
